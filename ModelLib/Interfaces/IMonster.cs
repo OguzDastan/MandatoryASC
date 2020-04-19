@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Numerics;
 using System.Text;
+using GameLib.Abstract;
+using ModelLib.Abstract;
 using ModelLib.Types;
 
 namespace ModelLib.Interfaces
@@ -12,6 +15,10 @@ namespace ModelLib.Interfaces
         /// Name of monster
         /// </summary>
         string Name { get; }
+        /// <summary>
+        /// Position in the game world
+        /// </summary>
+        Vector2 Position { get; set; }
         /// <summary>
         /// Hitpoints of creatures
         /// </summary>
@@ -63,19 +70,21 @@ namespace ModelLib.Interfaces
         bool IsDeadChecker();
 
         /// <summary>
-        /// Attack action
+        /// Attack action. Monster A attacking monster B
         /// </summary>
-        void Attack();
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        void Attack(MonsterAbstract a, MonsterAbstract b);
 
         /// <summary>
         /// Interaction with other monster objects
         /// </summary>
-        void InteractCreature();
+        void InteractCreature(MonsterAbstract m);
 
         /// <summary>
         /// Interaction with item objects
         /// </summary>
-        void InteractItem();
+        void InteractItem(GameWorldObjectAbstract obj);
 
         /// <summary>
         /// Random movement

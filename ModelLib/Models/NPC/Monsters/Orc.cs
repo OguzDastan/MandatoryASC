@@ -9,20 +9,21 @@ namespace ModelLib.Models.NPC.Monsters
 {
     public class Orc : MonsterAbstract
     {
-        public Orc()
+        public Orc(IMonsterBehavior hostileBehavior, IMonsterBehavior neutralBehavior)
         {
-            
-        }
-        // standard constructor
-        public Orc(string name, double hp, WeaponType weapon, ArmorType armor, int posX, int posY, Direction direction, MonsterState state) : base(name, state, hp, weapon, armor, posX, posY, direction)
-        {
+            Hitpoints = 100;
+            Name = "Orc";
+            MonsterChar = 'O';
+            IsDead = false;
+            Armor = ArmorType.Heavy;
+            Weapon = WeaponType.Melee;
+            CurrentState = MonsterState.Hostile;
+            Damage = 15;
 
-        }
 
-        // constructor with behavior factory
-        public Orc(string name, MonsterState initialState, IMonsterBehaviorFactory factory, double hp, WeaponType weapon, ArmorType armor, int posX, int posY, Direction direction) : base(name, initialState, hp, weapon, armor, posX, posY, direction)
-        {
-            
+            //
+            SetBehavior(MonsterState.Hostile, hostileBehavior);
+            SetBehavior(MonsterState.Neutral, neutralBehavior);
         }
     }
 }

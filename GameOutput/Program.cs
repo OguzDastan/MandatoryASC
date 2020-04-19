@@ -12,11 +12,18 @@ namespace GameOutput
     {
         static void Main(string[] args)
         {
-            Orc o = new Orc("Orc", 100, WeaponType.Melee, ArmorType.Heavy, 1,1, CreatureMovement(), MonsterState.Neutral);
+            Orc a = new Orc(new NeutralBehavior(), new HostileBehavior() );
+            Orc b = new Orc(new NeutralBehavior(), new HostileBehavior());
 
-            Console.WriteLine("Name:" + o.Name + "\nState:" + o.CurrentState + "\nWeapon:" + o.WeaponType + "\nArmor:" + o.ArmorType + "\nPosition X:" + o.PositionX + " - Position Y:" + o.PositionY + "\nDirection:" + o.CreatureDirection + "\nState:" + o.CurrentState);
-            // o.SetBehavior(MonsterState.Hostile, new HostileBehavior());
-            o.Act();
+            a.SetBehavior(MonsterState.Neutral, new NeutralBehavior());
+            b.SetBehavior(MonsterState.Neutral, new NeutralBehavior());
+
+            Console.WriteLine("" + a.CurrentState + " " + b.CurrentState);
+
+            a.Attack(a,b);
+
+
+            a.Act();
 
         }
 

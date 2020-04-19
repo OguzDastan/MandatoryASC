@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using GameLib.Models.NPC.Monsters.Behavior;
 using ModelLib.Interfaces;
 
 namespace ModelLib.Models.NPC.Monsters.Behavior
