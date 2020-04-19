@@ -7,11 +7,11 @@ using ModelLib.Types;
 
 namespace ModelLib.Models
 {
-    public class Creature : CreaturesAbstract
+    public class Creature : MonsterAbstract
     {
         #region constructor
         
-        public Creature(string name, int posX, int posY, WeaponType weapon, ArmorType armor, double hp, Direction dir) : base(name, hp, weapon, armor, posX, posY, dir)
+        public Creature(string name, MonsterState state, int posX, int posY, WeaponType weapon, ArmorType armor, double hp, Direction dir) : base(name, state, hp, weapon, armor, posX, posY, dir)
         {
             // instance of state
             IsDead = false;

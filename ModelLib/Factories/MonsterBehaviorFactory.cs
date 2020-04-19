@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using GameLib.Models.NPC.Monsters.Behavior;
 using ModelLib.Interfaces;
+using ModelLib.Models.NPC.Monsters.Behavior;
 using ModelLib.Types;
 
 namespace ModelLib.Factories
@@ -10,12 +12,12 @@ namespace ModelLib.Factories
     {
         public IMonsterBehavior CreateHostileBehavior()
         {
-            throw new NotImplementedException();
+            return new HostileBehavior();
         }
 
         public IMonsterBehavior CreateNeutralBehavior()
         {
-            throw new NotImplementedException();
+            return new NeutralBehavior();
         }
     }
 }
