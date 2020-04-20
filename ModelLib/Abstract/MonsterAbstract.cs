@@ -68,7 +68,7 @@ namespace ModelLib.Abstract
         {
             if (Hitpoints <= 0)
             {
-                Console.WriteLine(Name + "was killed!");
+                Console.WriteLine(Name + " was killed!");
                 return IsDead = true;
             }
 
@@ -110,22 +110,21 @@ namespace ModelLib.Abstract
         {
             if (a.CurrentState == MonsterState.Hostile || b.CurrentState == MonsterState.Hostile)
             {
-
-                Console.WriteLine(a.Name + "is attacking" + b.Name + "!!!!");
+                Console.WriteLine(a.Name + " is attacking " + b.Name + "!!!!");
 
                 if (a.Damage < b.Hitpoints)
                 {
                     double newHitpoints = a.Hitpoints -= b.Damage;
                     b.Hitpoints = newHitpoints;
 
-                    Console.WriteLine(b.Name + "has taken " + a.Damage + "damage!");
-                    Console.WriteLine(b.Name + "has " + b.Hitpoints + "hp left!");
+                    Console.WriteLine(b.Name + " has taken " + a.Damage + " damage!");
+                    Console.WriteLine(b.Name + " has " + b.Hitpoints + " hp left!");
                 }
                 else if (a.Damage > b.Hitpoints)
                 {
                     b.Hitpoints = 0;
 
-                    Console.WriteLine(b.Name + "Died!");
+                    Console.WriteLine(b.Name + " Died!");
                 }
             }
             else if (a.CurrentState == MonsterState.Neutral && b.CurrentState == MonsterState.Neutral)
@@ -144,9 +143,15 @@ namespace ModelLib.Abstract
 
         // method for setting behavior through state
 
+        public void SetState(MonsterState state)
+        {
+            CurrentState = state;
+        }
+
         public void SetBehavior(MonsterState state, IMonsterBehavior behavior)
         {
             Behaviors[state] = behavior;
+
         }
 
         // method for acting on state e.g. Hostile = Attack

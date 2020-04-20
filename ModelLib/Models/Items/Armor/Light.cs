@@ -11,19 +11,24 @@ namespace ModelLib.Models.Items.Armor
         public override ArmorType ArmorType
         {
             get { return ArmorType.Light; }
+            set { }
         }
 
         public override string Name
         {
-            get
-            {
-                return "Light Armor";
-            }
+            get { return "Light Armor"; }
+            set { }
         }
 
         public override double Defence
         {
             get { return 10; }
+            set { }
+        }
+        public Light(string name, double defence)
+        {
+            Name = name;
+            Defence = defence;
         }
     }
 }

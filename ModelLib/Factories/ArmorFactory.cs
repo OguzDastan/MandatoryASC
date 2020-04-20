@@ -11,9 +11,9 @@ namespace ModelLib.Factories
     {
         public IArmor Create(ArmorType type)
         {
-            if (type == ArmorType.Light) return new Light();
+            if (type == ArmorType.Light) return new Light("Mages robes", 10);
             if (type == ArmorType.Medium) return new Medium();
-            if (type == ArmorType.Heavy) return new Heavy();
+            if (type == ArmorType.Heavy) return new Heavy("Gondor Footman Armor", 50);
 
             throw new ArgumentException($"Armor Factory - No class available for that armortype {type}");
         }

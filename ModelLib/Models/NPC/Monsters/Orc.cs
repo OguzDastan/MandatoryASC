@@ -7,9 +7,9 @@ using ModelLib.Types;
 
 namespace ModelLib.Models.NPC.Monsters
 {
-    public class Orc : MonsterAbstract
+    public class Orc : MonsterAbstract 
     {
-        public Orc(IMonsterBehavior hostileBehavior, IMonsterBehavior neutralBehavior)
+        public Orc(MonsterState state, IMonsterBehavior hostileBehavior, IMonsterBehavior neutralBehavior)
         {
             Hitpoints = 100;
             Name = "Orc";
@@ -17,7 +17,7 @@ namespace ModelLib.Models.NPC.Monsters
             IsDead = false;
             Armor = ArmorType.Heavy;
             Weapon = WeaponType.Melee;
-            CurrentState = MonsterState.Hostile;
+            CurrentState = state;
             Damage = 15;
 
 

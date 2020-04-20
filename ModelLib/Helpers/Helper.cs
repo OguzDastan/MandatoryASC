@@ -7,6 +7,9 @@ namespace GameLib.Helpers
 {
     public class Helper
     {
+        // readonly, should give better random results...
+        private readonly Random r = new Random();
+
         /// <summary>
         /// Random position value
         /// </summary>
@@ -14,7 +17,6 @@ namespace GameLib.Helpers
         /// <returns></returns>
         public int PosRan(int value)
         {
-            Random r = new Random();
             int i = r.Next(value);
             return i;
         }

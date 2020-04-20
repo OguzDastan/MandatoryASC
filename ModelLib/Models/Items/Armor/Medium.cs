@@ -11,16 +11,19 @@ namespace ModelLib.Models.Items.Armor
         public override ArmorType ArmorType
         {
             get { return ArmorType.Medium; }
+            set { }
         }
 
         public override double Defence
         {
             get { return 25; }
+            set { }
         }
 
         public override string Name
         {
             get { return "Medium Armor"; }
+            set { }
         }
     }
 }

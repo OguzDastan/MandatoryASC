@@ -8,9 +8,9 @@ namespace ModelLib.Abstract
 {
     public abstract class ArmorAbstract : IArmor
     {
-        public abstract ArmorType ArmorType { get; }
-        public abstract double Defence { get; }
-        public abstract string Name { get; }
+        public abstract ArmorType ArmorType { get; set; }
+        public abstract double Defence { get; set; }
+        public abstract string Name { get; set; }
 
         public override string ToString()
         {

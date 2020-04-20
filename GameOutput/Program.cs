@@ -1,5 +1,8 @@
 ﻿using System;
+using GameLib.Abstract;
 using GameLib.Models.NPC.Monsters.Behavior;
+using ModelLib.Factories;
+using ModelLib.Interfaces;
 using ModelLib.Models;
 using ModelLib.Models.Items;
 using ModelLib.Models.NPC.Monsters;
@@ -12,29 +15,11 @@ namespace GameOutput
     {
         static void Main(string[] args)
         {
-            Orc a = new Orc(new NeutralBehavior(), new HostileBehavior() );
-            Orc b = new Orc(new NeutralBehavior(), new HostileBehavior());
-
-            a.SetBehavior(MonsterState.Neutral, new NeutralBehavior());
-            b.SetBehavior(MonsterState.Neutral, new NeutralBehavior());
-
-            Console.WriteLine("" + a.CurrentState + " " + b.CurrentState);
-
-            a.Attack(a,b);
-
-
-            a.Act();
+            Worker w = new Worker();
+            w.Run();
 
         }
 
-        // random direction array to assign starting direction of Creature
-        public static Direction CreatureMovement()
-        {
-            // random selection of direction enum (up, down, left, right)
-            Array directions = Enum.GetValues(typeof(Direction));
-            Random r = new Random();
-            Direction d = (Direction)directions.GetValue(r.Next(directions.Length));
-            return d;
-        }
+        
     }
 }
